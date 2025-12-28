@@ -6,13 +6,13 @@
 **시각화**
   
 **[Case1]**
-![aihubeda1](./images/imgae(week3_01).png)
+![aihubeda1](./images/image(week3_01).png)
 
 **[Case2]**
-![aihubeda1](./images/imgae(week3_02).png)
+![aihubeda1](./images/image(week3_02).png)
 
 **[Case3]**
-![aihubeda1](./images/imgae(week3_03).png)
+![aihubeda1](./images/image(week3_03).png)
 
 # 2. 데이터셋 분리
 - 전체 DATA 1200개 중 train/val/test를 8:1:1로 분리
