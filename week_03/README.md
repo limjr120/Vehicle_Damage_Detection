@@ -119,3 +119,96 @@
 ![visualization](./images/worst_08.jpg)
 ![visualization](./images/worst_09.jpg)
 ![visualization](./images/worst_10.jpg)
+
+# 5.모델 추가학습(epoch 100 ㅁ
+
+- 테스트 이미지 수: **120**
+- 비교 모델
+  - **Model 1**: yolo_v3 / yolo_v1.pt ← 100 epoch
+  - **Model 2**: yolo_v4 / yolo_v1.pt ← 200 epoch
+- 클래스: `Crushed`, `Scratched`, `breakage`, `Separated`
+
+---
+
+## 5-1.전체 성능 비교 (Overall Metrics)
+
+### 가.Micro / Macro 평균 성능
+
+| Metric | Model 1 | Model 2 | 비교 |
+|------|--------|--------|------|
+| **Micro Precision** | 0.5304 | **0.6142** | ▲ Model 2 |
+| **Micro Recall** | **0.3503** | 0.3235 | ▲ Model 1 |
+| **Micro F1-score** | 0.4219 | **0.4238** | ≈ 유사 |
+| **Micro mean IoU (TP)** | 0.8456 | **0.8837** | ▲ Model 2 |
+| **Macro Precision** | 0.5706 | **0.6814** | ▲ Model 2 |
+| **Macro Recall** | **0.3546** | 0.3476 | ▲ Model 1 |
+| **Macro F1-score** | 0.4350 | **0.4599** | ▲ Model 2 |
+
+---
+
+### 나.Error 관점 비교 (Micro 기준)
+
+| 항목 | Model 1 | Model 2 | 해석 |
+|----|--------|--------|------|
+| TP | **131** | 121 | Model 1이 더 많이 탐지 |
+| FP | 116 | **76** | Model 2가 오탐 감소 |
+| FN | **243** | 253 | Model 2가 더 보수적 |
+
+📌 **Model 2는 Precision 중심 (보수적 탐지)**  
+📌 **Model 1은 Recall 중심 (더 많이 잡지만 오탐 증가)**
+
+---
+
+## 5-2. 클래스별 성능 비교 (Per-class)
+
+### 가. F1-score 기준 비교
+
+| Class | Model 1 F1 | Model 2 F1 | 변화 |
+|-----|-----------|-----------|------|
+| **Crushed** | 0.4286 | **0.5185** | ▲ 개선 |
+| **Scratched** | **0.4065** | 0.3844 | ▼ 악화 |
+| **breakage** | **0.4828** | 0.4737 | ≈ 유사 |
+| **Separated** | 0.4220 | **0.4630** | ▲ 개선 |
+
+---
+
+### 나. Precision / Recall 상세
+
+| Class | Model | Precision | Recall |
+|-----|------|----------|--------|
+| Crushed | Model 1 | 0.6316 | 0.3243 |
+|  | Model 2 | **0.8235** | **0.3784** |
+| Scratched | Model 1 | 0.4934 | **0.3456** |
+|  | Model 2 | **0.5517** | 0.2949 |
+| breakage | Model 1 | 0.5676 | **0.4200** |
+|  | Model 2 | **0.6923** | 0.3600 |
+| Separated | Model 1 | 0.5897 | 0.3286 |
+|  | Model 2 | **0.6579** | **0.3571** |
+
+---
+
+## 5-3 종합 해석 (결론)
+
+### ✔ Model 2 (yolo_v4)의 특징
+- Precision, IoU, Macro F1 전반적 우수
+- FP가 크게 감소 → **오탐 억제에 강함**
+- 클래스 불균형 상황에서 더 안정적
+
+### ✔ Model 1 (yolo_v3)의 특징
+- Recall이 전반적으로 높음
+- FN이 적음 → **놓치면 안 되는 탐지에 유리**
+- Scratched 클래스에서는 더 나은 성능
+
+---
+
+## 5-4. 요약 비교
+
+| 목적 | 추천 모델 |
+|----|----------|
+| 보험/법률 증빙용 (오탐 최소화) | **Model 2** |
+| 파손 후보 최대 수집 (1차 필터) | **Model 1** |
+| 2-stage 파이프라인 | Model 1 → Model 2 |
+| 클래스별 파손 정밀 분석 | Model 2 |
+
+> **Model 2는 더 정확하고 보수적이며,  
+Model 1은 더 많이 찾지만 실수가 많은 모델이다.**
