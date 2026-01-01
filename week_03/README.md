@@ -120,7 +120,7 @@
 ![visualization](./images/worst_09.jpg)
 ![visualization](./images/worst_10.jpg)
 
-# 5.모델 추가학습(epoch 100 ㅁ
+# 5.모델 추가학습(epoch 100 → 200)
 
 - 테스트 이미지 수: **120**
 - 비교 모델
@@ -128,6 +128,11 @@
   - **Model 2**: yolo_v4 / yolo_v1.pt ← 200 epoch
 - 클래스: `Crushed`, `Scratched`, `breakage`, `Separated`
 
+YOLO_MODEL = "yolov8s.pt"
+IMGSZ = 640
+EPOCHS = 100 → 200 --- epoch만 2배로..
+BATCH = 16
+DEVICE = 0  # GPU:0(L4 사용)
 ---
 
 ## 5-1.전체 성능 비교 (Overall Metrics)
