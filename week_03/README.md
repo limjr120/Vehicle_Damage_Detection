@@ -2,7 +2,15 @@
 - 우리 데이터셋(aihub 차량파손이미지데이터)의 damaged/images, damaged/labels 정보
 ![aihubeda](./images/image(data_description_01).png)
 ![aihubeda](./images/image(data_description_02).png)
+
+- 전체 데이터셋의 손상종류별 수량 및 비율
 ![aihubeda](./images/week3_손상종류.png)
+
+- 우리 데이터셋(샘플 1200)의 손상종류별 수량\
+○ Scratched(스크래치)  : 2405(63.3%)\
+○ Crushed(찌그러짐)    : 312(8.2%)\
+○ Breakage(파손)       : 529(13.9%)\
+○ Separated(이격)      : 552(14.5%)
 
 **시각화**
   
