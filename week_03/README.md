@@ -2,6 +2,7 @@
 - 우리 데이터셋(aihub 차량파손이미지데이터)의 damaged/images, damaged/labels 정보
 ![aihubeda](./images/image(data_description_01).png)
 ![aihubeda](./images/image(data_description_02).png)
+![aihubeda](./images/week3_손상종류.png)
 
 **시각화**
   
