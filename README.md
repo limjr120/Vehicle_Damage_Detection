@@ -16,8 +16,19 @@
 
 ## 1. Study Contents
 
-### 1) **Stage1**(Vehicle Detection Model)
+### 1) Algorithm
 
+### 2) Datasets
+
+### 3) Modeling
+
+### **Stage1)** Vehicle Detection Model
+
+### **Stage2)** Damage Detection Model
+
+### **Stage3)** Damage Classification Model
+
+### **Stage4)** Damage Localization Model
 
 
 ## 2. Model
