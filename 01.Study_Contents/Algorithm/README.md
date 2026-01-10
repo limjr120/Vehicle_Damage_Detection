@@ -48,6 +48,12 @@ ResNet(Residual Network)은 2015년 Microsoft Research에서 발표한 딥러닝
    - 논문 원문: Deep Residual Learning for Image Recognition
    - 코드 구현: PyTorch ResNet 가이드 또는 TensorFlow ResNet API를 통해 사전 학습된 모델 사용
 
+
+※ 논문 원문
+
+**arXiv 원문 (PDF)**: https://arxiv.org/pdf/1512.03385.pdf  
+**CVPR 2016 공식 출판본 (PDF)**: https://www.cv-foundation.org/openaccess/content_cvpr_2016/papers/He_Deep_Residual_Learning_CVPR_2016_paper.pdf
+
 ※ 논문 소개 블로그
 
 https://wjunsea.tistory.com/99#google_vignette  
