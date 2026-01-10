@@ -22,7 +22,7 @@
 |---|---|---|---|---|---|
 | 문제정의/평가 | Confusion Matrix / Precision-Recall / F1 / ROC-AUC | 파손 클래스 불균형에서 성능을 제대로 해석 | 임계값·비용 관점 판단 가능 | Accuracy만 보면 착시 발생 |  |
 | 문제정의/평가 | mAP(Detection), IoU | 탐지·분할 성능의 표준 지표 | 모델 간 객관적 비교 가능 | IoU threshold 설정에 민감 |  |
-| 베이스라인 | ResNet (Transfer Learning) | 파손/정상 이진 분류 베이스라인 | 학습 안정적, 재현성 높음 | 미세 파손 정보 손실 가능 |  |
+| 베이스라인 | ResNet (Transfer Learning) | 파손/정상 이진 분류 베이스라인 | 학습 안정적, 재현성 높음 | 미세 파손 정보 손실 가능 | [상세보기](./01.Study_Contents/Algorithm/README.md) |
 | 베이스라인 | EfficientNet | 파라미터 대비 성능 효율적 분류 | 성능·속도 균형 우수 | 해상도/스케일 민감 |  |
 | 최신 분류 | ViT / Swin Transformer | 전역 문맥 기반 미세 파손 인식 | 성능 상한 높음 | 데이터 적으면 과적합 |  |
 | 객체탐지(필수) | YOLO 계열 (v5~v8 등) | 파손 위치를 박스로 탐지 | 실시간·실무 적용 용이 | 작은 파손 탐지 어려움 |  |
