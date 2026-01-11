@@ -29,7 +29,9 @@ CNN은 지역성(locality), 평행이동 불변성(inductive bias)을 구조적�
 ViT는 이미지를 **패치(patch) 단위 토큰 시퀀스**로 변환하여  
 표준 Transformer Encoder에 입력한다.
 
-<img src = "./images/vit_model_overview.png" width="500"/>
+<img src = "./images/vit_model_overview.png" width="650"/>
+
+https://github.com/lucidrains/vit-pytorch/blob/main/images/vit/gif
 
 ---
 
