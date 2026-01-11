@@ -29,13 +29,13 @@ ResNet(Residual Network)은 2015년 Microsoft Research에서 발표한 딥러닝
    - ResNet-18 / 34: 비교적 가벼운 모델로 빠른 추론이 필요할 때 사용
    - ResNet-50 / 101 / 152: 연산 효율을 높이기 위해 Bottleneck 구조(1x1, 3x3, 1x1 합성곱 사용)를 채택하여 성능과 속도를 모두 향상
 
-| 모델 | Depth(층 수) | Residual Block 타입 | Stage 구성 (conv2_x~conv5_x) | 파라미터(대략) | 연산량 GFLOPs(대략) | 특징 요약 | 추천 사용처 |
+| 모델 | Depth | Residual Block 타입 | Stage 구성 (conv2_x~conv5_x) | 파라미터(대략) | 연산량 GFLOPs(대략) | 특징 요약 | 추천 사용처 |
 |---|---:|---|---|---:|---:|---|---|
-| ResNet-18 | 18 | BasicBlock (3×3, 3×3) | [2, 2, 2, 2] | ~11.7M | ~1.8 | 가볍고 빠른 베이스라인 | 빠른 프로토타입, 엣지/모바일, 데이터 적을 때 |
-| ResNet-34 | 34 | BasicBlock (3×3, 3×3) | [3, 4, 6, 3] | ~21.8M | ~3.6 | 18 대비 성능↑, 여전히 비교적 가벼움 | 속도/성능 밸런스, 중간 규모 데이터 |
-| ResNet-50 | 50 | Bottleneck (1×1, 3×3, 1×1) | [3, 4, 6, 3] | ~25.6M | ~4.1 | “표준”급 backbone, 전이학습 활용도 높음 | 실무 기본 선택지(분류/탐지/세그 백본) |
-| ResNet-101 | 101 | Bottleneck (1×1, 3×3, 1×1) | [3, 4, 23, 3] | ~44.5M | ~7.8 | 더 깊고 강력(정확도 상한↑) | 성능 우선(서버), 탐지/세그에서 성능 끌어올릴 때 |
-| ResNet-152 | 152 | Bottleneck (1×1, 3×3, 1×1) | [3, 8, 36, 3] | ~60.2M | ~11.6 | 매우 무겁지만 깊이 상한 | 연구/대형 리소스, 성능 극대화(추론 비용 감수) |
+| ResNet-18 | 18 | BasicBlock (3×3, 3×3) | [2, 2, 2, 2] | ~11.7M | ~1.8 | 가볍고 빠른 베이스라인 | 데이터 적을 때 |
+| ResNet-34 | 34 | BasicBlock (3×3, 3×3) | [3, 4, 6, 3] | ~21.8M | ~3.6 | 18 대비 성능↑, 여전히 비교적 가벼움 | 중간 규모 데이터 |
+| ResNet-50 | 50 | Bottleneck (1×1, 3×3, 1×1) | [3, 4, 6, 3] | ~25.6M | ~4.1 | “표준”급 backbone, 전이학습 활용도 높음 | 실무 기본 선택지 |
+| ResNet-101 | 101 | Bottleneck (1×1, 3×3, 1×1) | [3, 4, 23, 3] | ~44.5M | ~7.8 | 더 깊고 강력(정확도 상한↑) | 성능 우선(서버) |
+| ResNet-152 | 152 | Bottleneck (1×1, 3×3, 1×1) | [3, 8, 36, 3] | ~60.2M | ~11.6 | 매우 무겁지만 깊이 상한 | 성능 극대화(추론 비용 감수) |
 
 **※ 빠른 선택 가이드**
 
@@ -51,8 +51,7 @@ ResNet(Residual Network)은 2015년 Microsoft Research에서 발표한 딥러닝
 
 ※ 논문 원문
 
-**arXiv 원문 (PDF)**: https://arxiv.org/pdf/1512.03385.pdf  
-**CVPR 2016 공식 출판본 (PDF)**: https://www.cv-foundation.org/openaccess/content_cvpr_2016/papers/He_Deep_Residual_Learning_CVPR_2016_paper.pdf
+https://arxiv.org/pdf/1512.03385.pdf  
 
 ※ 논문 소개 블로그
 
