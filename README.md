@@ -36,6 +36,14 @@
 
 ### 2) Datasets
 
+| 구분 | 폴더명 | 데이터수 | 출처 | 데이터EDA |
+|---|---|---|---|---|
+| non_vehicle | background |  |  |   |
+| normal_vehicle | normal |  |  |  |
+| normal_vehicle | normal(kaggle_dataset) |  |  |  |
+| damaged_vehicle | damaged |  |  |  |
+
+
 ### 3) Modeling
 
 ### **Stage1)** Vehicle Detection Model
