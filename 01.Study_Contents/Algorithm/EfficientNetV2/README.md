@@ -44,6 +44,8 @@ EfficientNetV2는 다음을 동시에 달성하는 것을 목표로 한다.
 - **초기 stage**: Fused-MBConv
 - **후반 stage**: 기존 MBConv 유지
 
+<img scr="./images/mbc_vs_fused_mbc.png" width="600"/>
+
 ---
 
 ## 4. 핵심 개선 아이디어 ②: Progressive Learning
