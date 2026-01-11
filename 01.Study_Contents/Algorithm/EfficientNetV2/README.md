@@ -1,4 +1,3 @@
-# EfficientNetV2
 **EfficientNetV2: Smaller Models and Faster Training**  
 (Mingxing Tan, Quoc V. Le, Google, 2021)
 
@@ -44,7 +43,7 @@ EfficientNetV2는 다음을 동시에 달성하는 것을 목표로 한다.
 - **초기 stage**: Fused-MBConv
 - **후반 stage**: 기존 MBConv 유지
 
-<img scr="./images/mbc_vs_fused_mbc.png" width="600"/>
+<img src="./images/mbc_vs_fused_mbc.png" width="400"/>
 
 ---
 
@@ -63,6 +62,8 @@ EfficientNetV2는 학습 과정에서
 - 초기 학습 안정성 ↑
 - 전체 학습 시간 ↓
 - 대규모 데이터셋에서 수렴 속도 개선
+
+<img src = "./images/progressive_learning.png" width="500"/>
 
 ---
 
@@ -89,6 +90,10 @@ EfficientNetV2는 학습 과정에서
 ### 정리
 - V2는 단순히 “더 정확한 모델”이 아니라
 - **“더 빨리 학습되는 모델”**
+
+<img src = "./images/efficientnetv2_result1.png" width="400"/>
+
+<img src = "./images/efficientnetv2_result2.png" width="700"/>
 
 ---
 
@@ -127,5 +132,9 @@ EfficientNetV2는 학습 과정에서
 ---
 
 ## 11. 참고 링크
-- Paper (arXiv): https://arxiv.org/abs/2104.00298  
-- PDF: https://arxiv.org/pdf/2104.00298.pdf
+
+※ 논문 원문
+https://arxiv.org/pdf/2104.00298.pdf
+
+※ 논문 소개 블로그
+https://deep-learning-study.tistory.com/567
