@@ -24,6 +24,7 @@
 | 문제정의/평가 | mAP(Detection), IoU | 탐지·분할 성능의 표준 지표 | 모델 간 객관적 비교 가능 | IoU threshold 설정에 민감 |  |
 | 베이스라인 | ResNet (Transfer Learning) | 파손/정상 이진 분류 베이스라인 | 학습 안정적, 재현성 높음 | 미세 파손 정보 손실 가능 | [상세보기](./01.Study_Contents/Algorithm/ResNet/README.md) |
 | 베이스라인 | EfficientNet | 파라미터 대비 성능 효율적 분류 | 성능·속도 균형 우수 | 해상도/스케일 민감 | [상세보기](./01.Study_Contents/Algorithm/EfficientNet/README.md) |
+| 베이스라인 | EfficientNetV2 | 빠른 학습과 작은 모델크기 | 정확하고 빠른 모델 | SOTA는 ViT로 이동 | [상세보기](./01.Study_Contents/Algorithm/EfficientNetV2/README.md) |
 | 최신 분류 | ViT / Swin Transformer | 전역 문맥 기반 미세 파손 인식 | 성능 상한 높음 | 데이터 적으면 과적합 |  |
 | 객체탐지(필수) | YOLO 계열 (v5~v8 등) | 파손 위치를 박스로 탐지 | 실시간·실무 적용 용이 | 작은 파손 탐지 어려움 |  |
 | 객체탐지(비교) | Faster R-CNN | 정확도 중심 2-stage 탐지 | 소형 물체 인식 강점 | 속도 느림 |  |
