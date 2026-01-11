@@ -29,9 +29,7 @@ CNN은 지역성(locality), 평행이동 불변성(inductive bias)을 구조적�
 ViT는 이미지를 **패치(patch) 단위 토큰 시퀀스**로 변환하여  
 표준 Transformer Encoder에 입력한다.
 
-<img src = "./images/vit_model_overview.png" width="650"/>
-
-https://github.com/lucidrains/vit-pytorch/blob/main/images/vit/gif
+<img src="./images/vit_model_overview.png" width="650">
 
 ---
 
@@ -45,6 +43,10 @@ https://github.com/lucidrains/vit-pytorch/blob/main/images/vit/gif
 5. `[CLS]` 토큰 출력을 이용해 분류 수행
 
 👉 **CNN 연산(Conv, Pooling) 없이 Transformer만 사용**
+
+<img src = "./images/vit.gif" width="650"/>
+
+출처: https://github.com/lucidrains/vit-pytorch/blob/main/images/vit.gif
 
 ---
 
@@ -87,6 +89,8 @@ Image
 - ViT는 **충분히 큰 데이터와 사전학습이 필수**
 - 데이터 규모가 성능의 핵심 요소
 
+<img src="./images/vit_result.png" width="750">
+
 ---
 
 ## 7. ViT 논문의 주요 기여 (Contributions)
@@ -113,22 +117,17 @@ Image
 
 ---
 
-## 9. 이미지 분류 실무 관점에서의 의미
-
-- 대규모 데이터가 있는 경우: **ViT 계열이 매우 강력**
-- 데이터가 제한적인 경우: CNN(ResNet, ConvNeXt)이 여전히 유리
-- ViT는 “CNN 대체”라기보다 **새로운 축을 연 모델**
-
----
-
-## 10. 한 문장 요약
+## 9. 요약
 
 > **ViT는 “이미지를 바라보는 방식을 CNN에서 Transformer로 확장시킨 전환점이 된 논문”이다.**
 
 ---
 
-## 11. 참고 링크
+## 10. 참고 링크
 
-- Paper (arXiv): https://arxiv.org/abs/2010.11929  
-- PDF: https://arxiv.org/pdf/2010.11929.pdf
+※ 논문 원본  
+https://arxiv.org/pdf/2010.11929.pdf
 
+※ 논문 리뷰 블로그  
+https://engineer-mole.tistory.com/133#google_vignette
+https://hipgyung.tistory.com/entry/%EC%89%BD%EA%B2%8C-%EC%9D%B4%ED%95%B4%ED%95%98%EB%8A%94-ViTVision-Transformer-%EB%85%BC%EB%AC%B8-%EB%A6%AC%EB%B7%B0-An-Image-is-Worth-16x16-Words-Transformers-for-Image-Recognition-at-Scale
