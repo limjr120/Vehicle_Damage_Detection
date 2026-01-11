@@ -36,17 +36,22 @@
 
 ### 2) Datasets
 
-| 구분 | 폴더명 | 데이터수 | 출처 | 데이터EDA |
-|---|---|---|---|---|
-| non_vehicle | background |  |  |   |
-| normal_vehicle | normal |  |  |  |
-| normal_vehicle | normal(kaggle_dataset) |  |  |  |
-| damaged_vehicle | damaged |  |  |  |
+| 번호 | 구분 | 폴더명 | 데이터수 | Annotation | 출처 | 데이터EDA |
+|---|---|---|---|---|---|---|
+|1-1| non_vehicle | background |  |  |  |  |
+|2-1| normal_vehicle | normal |  |  |  |  |
+|2-2| normal_vehicle | normal(kaggle_dataset) |  |  | kaggle |  |
+|3-1| damaged_vehicle | damaged |  |  |  |   |
+|3-2| damaged_vehicle | damaged(kaggle_dataset) |  |  | kaggle |  |
+|3-3| damaged_vehicle | AI_HUB_DAMAGE_DATASET | 12000 |  |  |  |
+|3-4| damaged_vehicle | AI_HUB_DAMAGE_DATASET(Sample5000) | 5000 |  |  |  |
 
 
 ### 3) Modeling
 
 ### **Stage1)** Vehicle Detection Model
+
+
 
 ### **Stage2)** Damage Detection Model
 
