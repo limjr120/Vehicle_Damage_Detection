@@ -1,120 +1,119 @@
 # EfficientNet
 
-## 1. EfficientNet이란?
-- **EfficientNet**은 Google에서 제안한 이미지 분류 모델
-- **적은 파라미터와 연산량으로 최대 성능을 내는 것**을 목표로 설계된 CNN 계열 알고리즘
-- 즉, **네트워크를 무작정 키우지 말고, 깊이·너비·해상도를 균형 있게 키우자** 는 것
+**EfficientNet: Rethinking Model Scaling for Convolutional Neural Networks**  
+(Mingxing Tan, Quoc V. Le, Google, 2019)
 
 ---
 
-## 2. 기존 CNN(ResNet 등)의 한계
-기존 CNN들은 보통 아래 중 하나의 방식으로만 확장했다.
+## 1. 배경
+기존 CNN 모델들은 성능을 높이기 위해 보통 다음 중 **한 가지만** 확장
 
-- 깊이만 증가 (ResNet-50 → 101 → 152)
-- 채널 수(너비)만 증가
-- 입력 해상도만 증가
+- 네트워크 **깊이(depth)** 증가 (예: ResNet-50 → 101)
+- 채널 수 **너비(width)** 증가
+- 입력 이미지 **해상도(resolution)** 증가
 
-이 방식의 문제점:
-- 연산량 대비 성능 향상이 비효율적
-- 모델마다 설계 기준이 경험적
-- 모바일/엣지 환경에 부적합
+### 문제점
+- 어느 한 요소만 키우면 **연산량 대비 성능 향상이 비효율적**
+- 모델 확장이 **경험적·비체계적**
+- 모바일/엣지 환경에서는 사용이 어려움
+
+<img src="./images/scale_up_baseline_model.png" width="790"/>
+
+
+
+👉 논문의 질문:
+> “CNN 모델을 키울 때, 가장 효율적인 확장 방법은 무엇인가?”
+---
+
+## 2. EfficientNet의 핵심 아이디어: Compound Scaling
+
+EfficientNet은 **깊이·너비·해상도를 동시에, 균형 있게 확장**하는 **Compound Scaling** 방법을 제안
+
+### 기본 개념
+- 단일 스케일 계수 `φ(phi)`를 기준으로 세 요소를 **고정된 비율**로 함께 증가
+
+👉 의미:
+> 같은 연산 예산 내에서 **가장 효율적인 방향으로 모델을 확장**
+
+<img src="./images/compound_scaling_concept.png" width="700"/>
 
 ---
 
-## 3. EfficientNet의 핵심 아이디어: Compound Scaling
+## 3. EfficientNet 기본 구조
 
-EfficientNet은 **Compound Scaling**이라는 단일 공식으로  
-다음 3가지를 **동시에, 비율에 맞게 확장**한다.
+### 3.1 Baseline: EfficientNet-B0
+- Neural Architecture Search(NAS)를 통해 설계
+- 모바일 환경을 고려한 경량 CNN
 
-- **Depth (깊이)**: 레이어 수
-- **Width (너비)**: 채널 수
-- **Resolution (해상도)**: 입력 이미지 크기
-
-### 핵심 개념
-> “모델을 키울 때, 한 가지만 키우지 말고  
-> 깊이·너비·해상도를 함께 키워야 가장 효율적이다.”
-
----
-
-## 4. EfficientNet 구조적 특징
-
-### 4.1 기본 블록: MBConv
+### 3.2 핵심 블록: MBConv
 EfficientNet은 **MBConv (Mobile Inverted Bottleneck Convolution)** 블록을 사용한다.
 
 MBConv 구성:
-- 1×1 Conv (채널 확장)
-- 3×3 또는 5×5 Depthwise Conv
-- Squeeze-and-Excitation(SE)
-- 1×1 Conv (채널 축소)
-- Skip Connection
+1. 1×1 Conv (채널 확장)
+2. Depthwise Conv (3×3 또는 5×5)
+3. Squeeze-and-Excitation (SE)
+4. 1×1 Conv (채널 축소)
+5. Skip Connection
 
-👉 MobileNet 계열 + ResNet 개념 결합
-
----
-
-### 4.2 Squeeze-and-Excitation (SE)
-- 채널별 중요도를 학습
-- 중요한 특징은 강조, 불필요한 채널은 억제
-- 파손 이미지처럼 **국소적 특징이 중요한 문제에 효과적**
+👉 MobileNet + ResNet + SE 구조의 결합
 
 ---
 
-## 5. EfficientNet 모델 라인업
+## 4. EfficientNet 모델 패밀리
+
+EfficientNet은 B0를 기준으로 Compound Scaling을 적용해 B1 ~ B7 모델을 생성한다.
 
 | 모델 | 입력 해상도 | 파라미터 수(대략) | 특징 |
 |---|---:|---:|---|
-| EfficientNet-B0 | 224×224 | ~5.3M | 기본 모델, 빠른 베이스라인 |
-| EfficientNet-B1 | 240×240 | ~7.8M | B0 대비 성능 향상 |
-| EfficientNet-B2 | 260×260 | ~9.2M | 해상도 증가 |
-| EfficientNet-B3 | 300×300 | ~12M | 실무에서 자주 사용 |
-| EfficientNet-B4 | 380×380 | ~19M | 고성능 |
-| EfficientNet-B5 | 456×456 | ~30M | 대형 모델 |
-| EfficientNet-B6 | 528×528 | ~43M | 연구/서버용 |
-| EfficientNet-B7 | 600×600 | ~66M | ImageNet SOTA급 |
+| B0 | 224×224 | ~5.3M | 기준 모델 |
+| B1 | 240×240 | ~7.8M | 소폭 확장 |
+| B2 | 260×260 | ~9.2M | 해상도 증가 |
+| B3 | 300×300 | ~12M | 실무에서 자주 사용 |
+| B4 | 380×380 | ~19M | 고성능 |
+| B5 | 456×456 | ~30M | 대형 모델 |
+| B6 | 528×528 | ~43M | 서버/연구용 |
+| B7 | 600×600 | ~66M | ImageNet SOTA |
 
 ---
 
-## 6. ResNet vs EfficientNet 간단 비교
+## 5. 실험 결과 (Results)
 
-| 구분 | ResNet | EfficientNet |
-|---|---|---|
-| 설계 철학 | 깊이를 통한 성능 향상 | 효율 최적화 |
-| 핵심 구조 | Residual Block | MBConv + SE |
-| 스케일링 방식 | 경험적 | Compound Scaling |
-| 파라미터 효율 | 보통 | 매우 높음 |
-| 모바일/엣지 | 부적합 | 적합 |
-| 학습 안정성 | 매우 좋음 | 좋음 |
+### ImageNet 분류 성능
+- EfficientNet-B7:
+  - **Top-1 Accuracy: 84.3%**
+  - 기존 CNN 대비 **훨씬 적은 파라미터와 FLOPs**
 
----
+### 핵심 성과
+- 같은 정확도에서:
+  - **ResNet 대비 8배 적은 파라미터**
+  - **연산량(FLOPs) 대폭 감소**
+- 모바일 환경에서도 우수한 성능
 
-## 7. 차량 파손 이미지 분류 관점에서의 활용
-
-### 장점
-- 적은 데이터에서도 성능 안정적
-- 연산량 대비 정확도 우수
-- 실시간/대량 추론 환경에 적합
-
-### 주의점
-- 입력 해상도가 커질수록 메모리 사용량 급증
-- 미세 파손(스크래치)은 해상도 설정이 중요
+<img src="./images/efficientnet_result.png" width="500"/>
 
 ---
 
-## 8. 실무/스터디 추천 사용 전략
+## 6. 논문의 주요 기여 (Contributions)
 
-- **Baseline 비교용**: ResNet-18 / ResNet-50
-- **효율 중심 분류 모델**: EfficientNet-B0 / B3
-- **성능 중심 분류 모델**: EfficientNet-B4 이상
-- **모바일/경량 서비스**: EfficientNet-B0 / B1
-
----
-
-## 9. 한 문장 요약
-> **EfficientNet은 “같은 연산 자원으로 가장 똑똑하게 설계된 CNN”이다.**
+1. **Compound Scaling**이라는 체계적인 모델 확장 방법 제시
+2. 효율성과 정확도를 동시에 달성한 CNN 패밀리 제안
+3. “모델을 키우는 방법” 자체를 연구 주제로 끌어올림
+4. 이후 EfficientNetV2, ConvNeXt, RegNet 등에 큰 영향
 
 ---
 
-## 10. 다음 확장 학습 포인트
-- EfficientNetV2 (학습 속도 개선)
-- ConvNeXt와의 구조적 차이
-- EfficientNet을 Backbone으로 활용한 Detection / Segmentation
+## 7. 한계 및 후속 연구
+- 입력 해상도가 커질수록 **메모리 사용량 급증**
+- 학습 속도가 느림 → **EfficientNetV2**에서 개선
+- Transformer 계열 등장 이후 SOTA 자리는 점차 이동
+
+---
+
+## 8. 참고
+
+※ 논문 원문  
+https://arxiv.org/pdf/1905.11946.pdf
+
+※ 논문 소개 블로그  
+https://rahites.tistory.com/97  
+https://wandukong.tistory.com/20#google_vignette
