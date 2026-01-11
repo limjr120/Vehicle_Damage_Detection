@@ -129,5 +129,6 @@ Image
 https://arxiv.org/pdf/2010.11929.pdf
 
 ※ 논문 리뷰 블로그  
-https://engineer-mole.tistory.com/133#google_vignette
+https://engineer-mole.tistory.com/133#google_vignette  
+
 https://hipgyung.tistory.com/entry/%EC%89%BD%EA%B2%8C-%EC%9D%B4%ED%95%B4%ED%95%98%EB%8A%94-ViTVision-Transformer-%EB%85%BC%EB%AC%B8-%EB%A6%AC%EB%B7%B0-An-Image-is-Worth-16x16-Words-Transformers-for-Image-Recognition-at-Scale
