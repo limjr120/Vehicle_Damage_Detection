@@ -16,9 +16,9 @@
 
 ## 1. Study Contents
 
-### 1) Algorithm
+### 1) Architecture
 
-| 알고리즘 유형 | 알고리즘 명칭 | 발표 연도 | 핵심 아이디어 | 상세설명 |
+| 유형 | 명칭 | 발표 연도 | 핵심 아이디어 | 상세설명 |
 |---|---|---:|---|---|
 | 이미지 분류 | ResNet | 2015 | Skip Connection(Residual Learning)을 도입해 깊은 CNN에서도 학습 안정성 확보, Degradation 문제 해결 | [상세보기](./01.Study_Contents/Algorithm/ResNet/README.md) |
 | 이미지 분류 | EfficientNet | 2019 | 깊이·너비·해상도를 동시에 균형 있게 확장하는 **Compound Scaling**으로 연산 효율 극대화 | [상세보기](./01.Study_Contents/Algorithm/EfficientNet/README.md) |
