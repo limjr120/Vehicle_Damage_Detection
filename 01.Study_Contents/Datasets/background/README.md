@@ -2,6 +2,12 @@
 
 ---
 
+## 0. Image Samples
+
+<img src="./images/background_samp_darkest.png">
+<img src="./images/background_samp_brightest.png">
+<img src="./images/background_samp_blurriestish.png">
+
 ## 1. Dataset Overview
 
 | 항목 | 값 |
@@ -127,8 +133,4 @@
 - 차량/파손 데이터와 결합 시  
   **False Positive 감소용 Negative 샘플로 매우 적합**
 
-## 8. Image Samples
 
-<img src="./images/background_samp_darkest.png">
-<img src="./images/background_samp_brightest.png">
-<img src="./images/background_samp_blurriestish.png">
