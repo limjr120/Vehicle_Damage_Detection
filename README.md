@@ -59,6 +59,10 @@
 
 ### **Stage3)** Damage Classification Model
 
+| Member | Topic | Model | Param | Datasets | f1 | Report |
+|---|---|---|---|---|---|---|
+| JR | 손상종류판단 | Yolo | v8s, 100 epoch, 16 batch | 3-1 | 0.4219 | [상세보기]("./week_03/README.md") |
+
 ### **Stage4)** Damage Localization Model
 
 
