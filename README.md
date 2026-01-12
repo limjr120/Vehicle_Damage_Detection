@@ -51,7 +51,9 @@
 
 ### **Stage1)** Vehicle Detection Model
 
-
+| Member | Topic | Model | Param | Datasets | f1 | Report |
+|---|---|---|---|---|---|---|
+| JR | 차량여부판단모델 | Yolo | v8s, 100 epoch, 16 batch | 1-1,2-1 | 0.7589 | [상세보기] |
 
 ### **Stage2)** Damage Detection Model
 
