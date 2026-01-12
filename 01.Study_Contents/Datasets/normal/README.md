@@ -78,6 +78,11 @@
 
 ➡️ 대부분 적정 노출, 극단적으로 밝은 이미지는 없음
 
+※ gray_mean < 40
+
+<img src = "./images/normal_smap_gray.png">
+
+
 ---
 
 ## 5. Image Quality & Integrity
