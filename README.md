@@ -39,7 +39,7 @@
 | 번호 | 구분 | 폴더명 | 데이터수 | 용량 | Annotation | 출처 | 데이터EDA |
 |---|---|---|---|---|---|---|---|
 |1-1| non_vehicle | background | 600 | 88.84 MB | N | | [상세보기](./01.Study_Contents/Datasets/background/README.md) |
-|2-1| normal | normal |  |  |  |  |  |
+|2-1| normal | normal | 157 | 25.90 MB | N |  | [상세보기](./01.Study_Contents/Datasets/normal/README.md) |
 |2-2| normal | normal(kaggle_dataset) |  |  |  | kaggle |  |
 |3-1| damaged | damaged |  |  |  |   | |
 |3-2| damaged | damaged(kaggle_dataset) | |  |  | kaggle |  |
