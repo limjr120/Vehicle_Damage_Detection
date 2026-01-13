@@ -40,7 +40,7 @@
 |---|---|---|---|---|---|---|---|
 |1-1| non_vehicle | background | 600 | 88.84 MB | N | | [상세보기](./01.Study_Contents/Datasets/background/README.md) |
 |2-1| normal | normal | 157 | 25.90 MB | N |  | [상세보기](./01.Study_Contents/Datasets/normal/README.md) |
-|2-2| normal | normal(kaggle_dataset) |  |  |  | kaggle | [상세보기](./01.Study_Contents/Datasets/normal_kaggle/README.md) |
+|2-2| normal | normal(kaggle_dataset) | 920 | 89.92 MB | N | kaggle | [상세보기](./01.Study_Contents/Datasets/normal_kaggle/README.md) |
 |3-1| damaged | damaged |  |  |  |   | |
 |3-2| damaged | damaged(kaggle_dataset) | |  |  | kaggle |  |
 |3-3| damaged | AI_HUB_DAMAGE_DATASET | 12,000 | |  |  |  |
